@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/screen"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.MainActivity">
+
+    <TextView
+        android:background="@color/colorWhite"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:text="Messages"
+        android:textSize="35dp"
+        android:textColor="#000"
+        android:paddingTop="9dp"
+        android:paddingBottom="10dp"
+        android:id="@+id/messages"
+        />
+<androidx.cardview.widget.CardView
+    android:layout_width="wrap_content"
+    android:layout_below="@id/messages"
+android:layout_centerHorizontal="true"
+    app:cardCornerRadius="19dp"
+    android:id="@+id/bvc"
+    android:layout_height="wrap_content">
+    <SearchView
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/background"
+        android:layout_marginTop="3dp"
+        android:id="@+id/searchView"
+        />
+
+</androidx.cardview.widget.CardView>
+    <com.google.android.material.tabs.TabLayout
+        android:layout_below="@id/bvc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tab_layout"
+        android:background="@color/colorWhite"
+        app:tabSelectedTextColor="@color/colorBlack"
+        app:tabTextColor="@color/colorBlack"
+        android:layout_marginTop="3dp"
+        app:tabIndicatorColor="@color/colorBlack"
+        />
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_below="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:id="@+id/view_pager"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        />
+
+
+</RelativeLayout>

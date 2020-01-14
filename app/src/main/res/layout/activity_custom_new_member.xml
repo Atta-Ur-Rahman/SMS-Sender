@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activities.CustomNewMemberActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add New Contact"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="330dp"
+            android:id="@+id/cardNewMember"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/tvTitle"
+            android:layout_marginTop="40dp"
+            app:cardCornerRadius="18dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:background="@color/colorWhite"
+                    android:layout_width="320dp"
+                    android:layout_height="60dp"
+                    android:hint="Enter The Name"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:inputType="textPersonName"
+                    android:id="@+id/newMemberName"
+                    android:textStyle="italic" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_below="@id/newMemberName"
+                    android:background="#DDDDDD" />
+
+                <EditText
+                    android:background="@color/colorWhite"
+                    android:textStyle="italic"
+                    android:layout_below="@id/newMemberName"
+                    android:layout_width="320dp"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="4dp"
+                    android:hint="Enter The Number"
+                    android:layout_gravity="center"
+                    android:maxLength="13"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:inputType="phone"
+                    android:id="@+id/newMemberNumber" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <RelativeLayout
+            android:id="@+id/btnadd"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_below="@id/cardNewMember"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:gravity="center"
+                android:layout_width="250dp"
+                android:layout_height="60dp"
+                android:id="@+id/addNewMemberBtn"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="Add to Group"
+
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/background_btn" />
+
+            <ImageView
+                android:layout_marginRight="10dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/arrow"
+                android:layout_marginTop="25dp"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:id="@+id/rlFromContact"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/btnadd"
+            android:layout_centerHorizontal="true">
+
+            <TextView
+                android:gravity="center"
+                android:layout_width="250dp"
+                android:layout_height="60dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="From Contact"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#1130c9" />
+
+            <ImageView
+                android:layout_marginRight="10dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/arrow"
+                android:layout_marginTop="25dp"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</ScrollView>

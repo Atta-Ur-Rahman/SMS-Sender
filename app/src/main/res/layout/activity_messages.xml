@@ -10,8 +10,7 @@
         android:layout_height="300dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
-        android:id="@+id/cardViewMessage"
-        >
+        android:id="@+id/cardViewMessage">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -25,42 +24,24 @@
                 android:background="@color/colorWhite"
                 android:textSize="17dp"
                 android:padding="15dp"
-                android:hint="Enter The Text"
-                />
+                android:hint="Enter The Text" />
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
-    <RelativeLayout
+
+    <TextView
+        android:gravity="center"
         android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_below="@id/cardViewMessage"
+        android:layout_height="60dp"
+        android:id="@+id/sentMessage"
         android:layout_centerHorizontal="true"
-        >
-        <TextView
-            android:gravity="center"
-            android:layout_width="250dp"
-            android:layout_height="60dp"
-            android:id="@+id/sentMessage"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
-            android:text="Send Message"
-            android:textSize="20dp"
-            android:textStyle="bold"
-            android:textColor="@color/colorWhite"
-            android:background="@drawable/background_btn"
-            />
-
-        <ImageView
-            android:layout_marginRight="10dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/arrow"
-            android:layout_marginTop="25dp"
-            android:layout_alignParentRight="true"
-            />
-    </RelativeLayout>
-
+        android:layout_marginTop="50dp"
+        android:text="Send Message"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_below="@id/cardViewMessage"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/background_btn" />
 
 
 </RelativeLayout>

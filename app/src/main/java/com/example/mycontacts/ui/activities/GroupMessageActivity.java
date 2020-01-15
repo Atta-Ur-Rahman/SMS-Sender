@@ -3,10 +3,12 @@ package com.example.mycontacts.ui.activities;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
@@ -60,7 +62,7 @@ public class GroupMessageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_group_message);
         ButterKnife.bind(this);
         contactCurd = new ContactCurd(this);
-        dialog= AlertUtils.createProgressDialog(this);
+        dialog = AlertUtils.createProgressDialog(this);
 
         sharedPreferences = getSharedPreferences("abcd", Context.MODE_PRIVATE);
         String groupName = sharedPreferences.getString("ide", "");
@@ -117,7 +119,7 @@ public class GroupMessageActivity extends AppCompatActivity {
         ActionBar mActionBar = ((AppCompatActivity) GroupMessageActivity.this).getSupportActionBar();
         mActionBar.setDisplayShowHomeEnabled(false);
         mActionBar.setDisplayShowTitleEnabled(true);
-        mActionBar.setDisplayHomeAsUpEnabled(false);
+        mActionBar.setDisplayHomeAsUpEnabled(true);
         mActionBar.setTitle(groupName);
         mActionBar.setElevation(0);
 
@@ -140,15 +142,34 @@ public class GroupMessageActivity extends AppCompatActivity {
 
             case R.id.deleteGroupMenu:
 
-                sharedPreferences = getSharedPreferences("abcd", Context.MODE_PRIVATE);
-                String groupName = sharedPreferences.getString("ide", "");
-                contactCurd.deleteGroup(groupName);
-                finish();
+
+                AlertDialog alertDialog = new AlertDialog.Builder(GroupMessageActivity.this).create();
+                alertDialog.setTitle("Delete!");
+                alertDialog.setMessage("Are you sure, You wanted to delete this group");
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Delete",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                                sharedPreferences = getSharedPreferences("abcd", Context.MODE_PRIVATE);
+                                String groupName = sharedPreferences.getString("ide", "");
+                                contactCurd.deleteGroup(groupName);
+                                finish();
+                            }
+                        });
+                alertDialog.show();
+
+
                 break;
             case R.id.contactsMenu:
                 Intent i = new Intent(GroupMessageActivity.this, GroupContactActivity.class);
                 startActivity(i);
                 break;
+
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
         return false;
     }
@@ -205,7 +226,6 @@ public class GroupMessageActivity extends AppCompatActivity {
                 registerReceiver(new BroadcastReceiver() {
                     @Override
                     public void onReceive(Context arg0, Intent arg1) {
-
 
                         switch (getResultCode()) {
                             case Activity.RESULT_OK:

@@ -9,7 +9,7 @@
         android:icon="@drawable/ic_delete_black_24dp"/>
     <item
         android:id="@+id/contactsMenu"
-        android:title="Contacts"
+        android:title="Group Contacts"
         app:showAsAction="always"
-        android:icon="@drawable/ic_contacts_black_24dp"/>
+        android:icon="@drawable/ic_contacts_black_24dp" />
 </menu>

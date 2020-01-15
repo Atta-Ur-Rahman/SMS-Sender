@@ -81,11 +81,21 @@ public class GroupAdapter extends RecyclerView.Adapter<GroupAdapter.myViewHolder
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if (which == 0) {
+                            android.app.AlertDialog alertDialog = new android.app.AlertDialog.Builder(context).create();
+                            alertDialog.setTitle("Delete!");
+                            alertDialog.setMessage("Are you sure, You wanted to delete this group");
+                            alertDialog.setButton(android.app.AlertDialog.BUTTON_NEUTRAL, "Delete",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.dismiss();
+                                            if (contactCurd.deleteGroup(strgroup)) {
+                                                ((Activity) context).finish();
+                                                ((Activity) context).startActivity(new Intent(context, MainActivity.class));
+                                            }
+                                        }
+                                    });
+                            alertDialog.show();
 
-                            if (contactCurd.deleteGroup(strgroup)) {
-                                ((Activity) context).finish();
-                                ((Activity) context).startActivity(new Intent(context, MainActivity.class));
-                            }
 
                         } else if (which == 1) {
 

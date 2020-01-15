@@ -58,7 +58,7 @@ public class GroupContactActivity extends AppCompatActivity {
 
         mActionBar.setDisplayShowHomeEnabled(false);
         mActionBar.setDisplayShowTitleEnabled(true);
-        mActionBar.setDisplayHomeAsUpEnabled(false);
+        mActionBar.setDisplayHomeAsUpEnabled(true);
         mActionBar.setTitle(groupName);
         mActionBar.setElevation(0);
 
@@ -84,6 +84,12 @@ public class GroupContactActivity extends AppCompatActivity {
                 Intent intent = new Intent(GroupContactActivity.this, CustomNewMemberActivity.class);
                 startActivity(intent);
                 break;
+
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
 
         }
 

@@ -5,12 +5,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mycontacts.R;
@@ -33,6 +36,8 @@ public class CustomNewMemberActivity extends AppCompatActivity implements View.O
     RelativeLayout rlFromContact;
     String strGroupName;
 
+    SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +45,7 @@ public class CustomNewMemberActivity extends AppCompatActivity implements View.O
         SharedPreferences sharedPreferences = getSharedPreferences("abcd", Context.MODE_PRIVATE);
         strGroupName = sharedPreferences.getString("ide", "");
 
-
+        customActionBar();
         initUI();
 
 
@@ -98,4 +103,39 @@ public class CustomNewMemberActivity extends AppCompatActivity implements View.O
 
         }
     }
+
+
+    public void customActionBar() {
+        sharedPreferences = getSharedPreferences("abcd", Context.MODE_PRIVATE);
+        String groupName = sharedPreferences.getString("ide", "");
+
+        ActionBar mActionBar = (CustomNewMemberActivity.this).getSupportActionBar();
+
+        mActionBar.setDisplayShowHomeEnabled(false);
+        mActionBar.setDisplayShowTitleEnabled(true);
+        mActionBar.setDisplayHomeAsUpEnabled(true);
+        mActionBar.setTitle(groupName);
+        mActionBar.setElevation(0);
+
+        mActionBar.show();
+
+
+    }
+
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+
 }

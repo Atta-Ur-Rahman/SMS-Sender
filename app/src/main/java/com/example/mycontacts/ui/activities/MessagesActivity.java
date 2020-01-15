@@ -6,6 +6,7 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -43,13 +44,6 @@ public class MessagesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messages);
         ButterKnife.bind(this);
-
-
-
-//        int titleId = getResources().getIdentifier("action_bar_title", "id", getPackageName());
-//        TextView abTitle = (TextView) findViewById(titleId);
-//        abTitle.setTextColor(getResources().getColor(R.color.blackLight));
-
 
 
         sendMessage.setOnClickListener(new View.OnClickListener() {
@@ -107,35 +101,29 @@ public class MessagesActivity extends AppCompatActivity {
         ActionBar mActionBar = ((AppCompatActivity) MessagesActivity.this).getSupportActionBar();
 
 
-
-
-//        TextView textview = new TextView(MessagesActivity.this);
-//
-//        layoutparams = new RelativeLayout.LayoutParams(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
-//
-//        textview.setLayoutParams(layoutparams);
-//
-//        textview.setText("Action Bar Title Text");
-//
-//        textview.setGravity(Gravity.CENTER);
-//
-//        textview.setTextColor(Color.parseColor("#fc6902"));
-//
-//        textview.setTextSize(25);
-//
-//
-//        actionbar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-//
-//        actionbar.setCustomView(textview);
-
         mActionBar.setDisplayShowHomeEnabled(false);
         mActionBar.setDisplayShowTitleEnabled(true);
-        mActionBar.setDisplayHomeAsUpEnabled(false);
+        mActionBar.setDisplayHomeAsUpEnabled(true);
         mActionBar.setTitle(contactName);
         mActionBar.setElevation(0);
 
         mActionBar.show();
 
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 }
 

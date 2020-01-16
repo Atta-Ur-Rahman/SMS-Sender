@@ -31,7 +31,7 @@ public class ContactCurd {
 
         if (cursor.moveToFirst()) {
 
-//            Toast.makeText(context, "Already Exist", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Already Exist", Toast.LENGTH_SHORT).show();
 
         } else {
 
@@ -68,7 +68,7 @@ public class ContactCurd {
 
 
         } else {
-            Toast.makeText(context, "no exist", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(context, "no exist", Toast.LENGTH_SHORT).show();
         }
         return list;
     }
@@ -120,7 +120,7 @@ public class ContactCurd {
 
 
         } else {
-            Toast.makeText(context, "no exist", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(context, "no exist", Toast.LENGTH_SHORT).show();
         }
         return list;
     }
@@ -185,14 +185,6 @@ public class ContactCurd {
         Cursor cursor = database.rawQuery(countQuery, null);
         int count = cursor.getCount();
         cursor.close();
-
-//        Cursor cursors = database.rawQuery(
-//                "SELECT SUM(ADVANCE_PRICE) FROM CONTACT_TABLE WHERE CONTACT_NUMBER  = '"+ strGRoupName + "'", null);
-//
-//        Log.d("itemnumber",String.valueOf(cursors.getInt(0)));
-
-
-
         return count;
     }
 

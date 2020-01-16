@@ -116,12 +116,10 @@ public class GroupMessageActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("abcd", Context.MODE_PRIVATE);
         String groupName = sharedPreferences.getString("ide", "");
 
-        ActionBar mActionBar = ((AppCompatActivity) GroupMessageActivity.this).getSupportActionBar();
-        mActionBar.setDisplayShowHomeEnabled(false);
-        mActionBar.setDisplayShowTitleEnabled(true);
+        ActionBar mActionBar = GroupMessageActivity.this.getSupportActionBar();
+        assert mActionBar != null;
         mActionBar.setDisplayHomeAsUpEnabled(true);
         mActionBar.setTitle(groupName);
-        mActionBar.setElevation(0);
 
         mActionBar.show();
 

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/main_background"
     tools:context=".ui.activities.CustomNewMemberActivity">
 
 
@@ -39,13 +40,12 @@
                     android:background="@color/colorWhite"
                     android:layout_width="320dp"
                     android:layout_height="60dp"
-                    android:hint="Enter The Name"
+                    android:hint="Name"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:textSize="18dp"
                     android:inputType="textPersonName"
-                    android:id="@+id/newMemberName"
-                    android:textStyle="italic" />
+                    android:id="@+id/newMemberName" />
 
                 <View
                     android:layout_width="match_parent"
@@ -55,12 +55,11 @@
 
                 <EditText
                     android:background="@color/colorWhite"
-                    android:textStyle="italic"
                     android:layout_below="@id/newMemberName"
                     android:layout_width="320dp"
                     android:layout_height="60dp"
                     android:layout_marginTop="4dp"
-                    android:hint="Enter The Number"
+                    android:hint="Number"
                     android:layout_gravity="center"
                     android:maxLength="13"
                     android:gravity="center"
@@ -101,7 +100,6 @@
                 android:layout_marginTop="25dp"
                 android:layout_alignParentRight="true" />
         </RelativeLayout>
-
 
 
         <RelativeLayout
